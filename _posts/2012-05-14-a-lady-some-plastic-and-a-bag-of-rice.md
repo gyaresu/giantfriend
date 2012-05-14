@@ -2,7 +2,7 @@
 layout: post
 title: "a lady, some plastic and a bag of rice"
 description: ""
-category: 
+category: interview 
 tags: [india, giantfriend]
 ---
 {% include JB/setup %}
