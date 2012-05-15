@@ -3,14 +3,48 @@ layout: page
 title: Welcome to Giantfriend
 tagline: an experiment in collective awesomeness
 ---
-{% include JB/setup %}
-<object width="526" height="374">
-<param name="movie" value="http://video.ted.com/assets/player/swf/EmbedPlayer.swf"></param>
-<param name="allowFullScreen" value="true" />
-<param name="allowScriptAccess" value="always"/>
-<param name="wmode" value="transparent"></param>
-<param name="bgColor" value="#ffffff"></param>
-<param name="flashvars" value="vu=http://video.ted.com/talk/stream/2010/Blank/EstherDuflo_2010-320k.mp4&su=http://images.ted.com/images/ted/tedindex/embed-posters/EstherDuflo-2010.embed_thumbnail.jpg&vw=512&vh=288&ap=0&ti=847&lang=&introDuration=15330&adDuration=4000&postAdDuration=830&adKeys=talk=esther_duflo_social_experiments_to_fight_poverty;year=2010;theme=not_business_as_usual;theme=bold_predictions_stern_warnings;theme=rethinking_poverty;theme=unconventional_explanations;event=TED2010;tag=economics;tag=poverty;tag=third+world;&preAdTag=tconf.ted/embed;tile=1;sz=512x288;" />
-<embed src="http://video.ted.com/assets/player/swf/EmbedPlayer.swf" pluginspace="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" bgColor="#ffffff" width="526" height="374" allowFullScreen="true" allowScriptAccess="always" flashvars="vu=http://video.ted.com/talk/stream/2010/Blank/EstherDuflo_2010-320k.mp4&su=http://images.ted.com/images/ted/tedindex/embed-posters/EstherDuflo-2010.embed_thumbnail.jpg&vw=512&vh=288&ap=0&ti=847&lang=&introDuration=15330&adDuration=4000&postAdDuration=830&adKeys=talk=esther_duflo_social_experiments_to_fight_poverty;year=2010;theme=not_business_as_usual;theme=bold_predictions_stern_warnings;theme=rethinking_poverty;theme=unconventional_explanations;event=TED2010;tag=economics;tag=poverty;tag=third+world;&preAdTag=tconf.ted/embed;tile=1;sz=512x288;"></embed>
-</object>
-
+<ul class="posts">
+  {% for post in site.posts %}
+<div class="full">
+    <h1 class="entry-title">
+      <a href="{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a>
+    </h1>
+    <div class="entry-content full-content">
+      {{ post.content }}
+      <div class="clear"></div>
+    </div>
+    <p class="alt-font tight">
+      Posted in&nbsp;
+      {% for category in post.categories %}
+      <a href="/categories/{{ category }}" title="{{ category }}" rel="category tag">{{ category }}</a>
+      {% endfor %}
+    </p>
+    <p class="comments-link">
+      <a href='{{post.url}}#disqus_thread'>Comments</a>
+    </p>
+    <p class="by-line">
+      <span class="date full-date">
+        <abbr class="published" title="{{ post.date }}">{{ post.date | date_to_string }}</abbr>
+      </span>
+    </p>
+    <div class="clear"></div>
+  </div>
+  <div class="rule"><hr/></div>
+  {% endfor %}
+<div class="pagination">
+  <span class="previous">
+    {% if site.previous_page %}
+      {% if site.previous_page == 1 %}
+      <a href="/blog.html" title="Previous Page">&laquo; Previous</a>
+      {% else %}
+      <a href="/page{{ site.previous_page }}/" title="Previous Page">&laquo; Previous</a>
+      {% endif %}
+    {% endif %}
+  </span>
+  <span class="next">
+    {% if site.next_page %}
+    <a href="/page{{ site.next_page }}/" title="Next Page">Next &raquo;</a>
+    {% endif %}
+  </span>
+</div>
+</ul>
