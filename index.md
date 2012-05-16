@@ -16,7 +16,7 @@ tagline: an experiment in collective awesomeness
     <p class="alt-font tight">
       Posted in&nbsp;
       {% for category in post.categories %}
-      <a href="/categories/{{ category }}" title="{{ category }}" rel="category tag">{{ category }}</a>
+      <a href="/categories.html#{{ category }}-ref" title="{{ category }}" rel="category tag">{{ category }}</a>
       {% endfor %}
     </p>
     <p class="comments-link">
